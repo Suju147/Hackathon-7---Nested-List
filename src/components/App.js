@@ -1,4 +1,6 @@
+import { render } from "enzyme";
 import React, { Component, useState } from "react";
+import ReactDOM from 'react-dom';
 import "./../styles/App.css";
 
 // Do not alter the states const and values inside it.
@@ -29,7 +31,7 @@ const states = [
         ],
       },
       {
-        name: "Gwalior",
+        name: "Gwadivor",
         towns: [
           {
             name: "Ajaypur",
@@ -155,7 +157,63 @@ const states = [
 ];
 
 function App() {
-  return <div id="main"></div>;
+  const cityfun=(city)=>{
+    console.log(city.target);
+    if(city.target.id="city1")
+    {
+      ReactDOM.render((<div>
+        <div id="town1">{states[0].cities[0].towns[0].name}</div>
+        <div id="town2">{states[0].cities[0].towns[1].name}</div>
+      </div>),document.getElementById("city1"));
+    }
+    else if(city.target.id="city2")
+    {
+      ReactDOM.render((<div>
+        <div id="town1">{states[0].cities[1].towns[0].name}</div>
+        <div id="town2">{states[0].cities[1].towns[1].name}</div>
+      </div>),document.getElementById("city2"));}
+     else if(city.target.id="city3")
+      {
+        ReactDOM.render((<div>
+          <div id="town1">{states[0].cities[2].towns[0].name}</div>
+          <div id="town2">{states[0].cities[2].towns[1].name}</div>
+        </div>),document.getElementById("city3"));
+      }
+    
+  }
+
+  const statefun=(state)=>{
+    if(state.target.id==='state1')
+    {console.log("10");
+    ReactDOM.render(
+      (<div ><div id="city1" onClick={cityfun}>{states[0].cities[0].name}</div>
+    <div id="city2" onClick={cityfun}>{states[0].cities[1].name}</div>
+    <div id="city3" onClick={cityfun}>{states[0].cities[2].name}</div></div>),document.getElementById("state1"));
+    }
+    else if(state.target.id==='state2')
+    {ReactDOM.render((<div ><div id="city1" onClick={cityfun}>{states[1].cities[0].name}</div>
+    <div id="city2" onClick={cityfun}>{states[1].cities[1].name}</div>
+    <div id="city3" onClick={cityfun}>{states[1].cities[2].name}</div></div>),document.getElementById("state2"));
+    }
+    else if(state.target.id==='state3')
+    {ReactDOM.render((<div ><div id="city1" onClick={cityfun}>{states[2].cities[0].name}</div>
+    <div id="city2" onClick={cityfun}>{states[2].cities[1].name}</div>
+    <div id="city3" onClick={cityfun}>{states[2].cities[2].name}</div></div>),document.getElementById("state3"));}
+
+    else if(state.target.id==='state4')
+    {ReactDOM.render((<div ><div id="city1" onClick={cityfun}>{states[3].cities[0].name}</div>
+    <div id="city2" onClick={cityfun}>{states[3].cities[1].name}</div>
+    <div id="city3"onClick={cityfun}>{states[3].cities[2].name}</div></div>),document.getElementById("state3"));
+    }
+    
+  }
+  return <div id="main">
+    <div id="state1" onClick={statefun}>{states[0].name}</div>
+    <div id="state2" onClick={statefun}>{states[1].name}</div>
+    <div id="state3" onClick={statefun}>{states[2].name}</div>
+    <div id="state4" onClick={statefun}>{states[3].name}</div>
+    
+  </div>;
 }
 
 export default App;
