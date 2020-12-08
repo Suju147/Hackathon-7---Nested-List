@@ -32,7 +32,7 @@ const states = [
         ],
       },
       {
-        name: "Gwadivor",
+        name: "Gwalior",
         towns: [
           {
             name: "Ajaypur"},
