@@ -36,10 +36,7 @@ const states = [
         towns: [
           {
             name: "Ajaypur"},
-            {
-              name:"superCool"
-            },
-           
+         
         ],
       },
     ],
