@@ -3,7 +3,7 @@ import './town.css';
 
 function town(props)
 {
-    console.log("city1",props.city1);
+    //console.log("city1",props.city1);
     if(props.city1)
     {
         console.log(props.id);
@@ -26,6 +26,7 @@ function town(props)
         {
             return<div className="towns">
                 <div id="town1">{props.state[0].cities[2].towns[0].name}</div>
+                <div id="town2">{props.state[0].cities[2].towns[1].name}</div>
                 
             </div>
         }
