@@ -9,7 +9,7 @@ function town(props)
         console.log(props.id);
         if(props.id==="city1")
         {
-            console.log(props.state[0].cities[0].towns[0].name);
+            //console.log(props.state[0].cities[0].towns[0].name);
             return<div className="towns">
                 <div id="town1">{props.state[0].cities[0].towns[0].name}</div>
                 <div id="town2">{props.state[0].cities[0].towns[1].name}</div>
@@ -26,6 +26,7 @@ function town(props)
         {
             return<div className="towns">
                 <div id="town1">{props.state[0].cities[2].towns[0].name}</div>
+                <div id="town2"></div>
                 
             </div>
         }
