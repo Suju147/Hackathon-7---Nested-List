@@ -2,6 +2,7 @@ import { render } from "enzyme";
 import React, { Component, useState } from "react";
 import ReactDOM from 'react-dom';
 import "./../styles/App.css";
+import City from './city';
 
 // Do not alter the states const and values inside it.
 const states = [
@@ -35,8 +36,7 @@ const states = [
         towns: [
           {
             name: "Ajaypur"},
-            {name: "cool"
-          },
+           
         ],
       },
     ],
@@ -157,145 +157,46 @@ const states = [
   },
 ];
 
-function App() {
-  const cityfun=(city)=>{
-    console.log(city.target);
-    if(city.target.className==="state1")
-    {if(city.target.id==="city1") 
-    {console.log("1");
-      ReactDOM.render((<div>
-        <div id="town1">{states[0].cities[0].towns[0].name}</div>
-        <div id="town2">{states[0].cities[0].towns[1].name}</div>
-      </div>),document.getElementById("city1"));
+
+function App(){
+  //console.log(states[0]);
+  const[city1,setCity1]=useState(false);
+  const[city2,setCity2]=useState(false);
+  const[city3,setCity3]=useState(false);
+  const[city4,setCity4]=useState(false);
+
+
+  const toggleCity=(evt)=>{
+    //console.log(evt.target.id);
+    if(evt.target.id==="state1")
+    {
+      setCity1(!city1);
+      //console.log("city1",city1);
     }
-    else if(city.target.id==="city2")
-    {console.log("2")
-      ReactDOM.render((<div>
-        <div id="town1">{states[0].cities[1].towns[0].name}</div>
-        <div id="town2">{states[0].cities[1].towns[1].name}</div>
-      </div>),document.getElementById("city2"));}
-
-     else if(city.target.id==="city3")
-      {
-        console.log("3");
-        ReactDOM.render((<div>
-          <div id="town1">{states[0].cities[2].towns[0].name}</div>
-          <div id="town2">{states[0].cities[2].towns[1].name}</div>
-        </div>),document.getElementById("city3"));
-      }}
-      else if(city.target.className==="state2")
-      {
-        if(city.target.id==="city1") 
-    {console.log("1");
-      ReactDOM.render((<div>
-        <div id="town1">{states[1].cities[0].towns[0].name}</div>
-        <div id="town2">{states[1].cities[0].towns[1].name}</div>
-      </div>),document.getElementById("city1"));
+    if(evt.target.id==="state2")
+    {
+      setCity2(!city2);
+      console.log("city2",city2);
     }
-    else if(city.target.id==="city2")
-    {console.log("2")
-      ReactDOM.render((<div>
-        <div id="town1">{states[1].cities[1].towns[0].name}</div>
-        <div id="town2">{states[1].cities[1].towns[1].name}</div>
-      </div>),document.getElementById("city2"));}
-
-     else if(city.target.id==="city3")
-      {
-        console.log("3");
-        ReactDOM.render((<div>
-          <div id="town1">{states[1].cities[2].towns[0].name}</div>
-          <div id="town2">{states[1].cities[2].towns[1].name}</div>
-        </div>),document.getElementById("city3"));
-      }
-
-      }
-
-      else if(city.target.className==="state3")
-      {
-        if(city.target.id==="city1") 
-    {console.log("1");
-      ReactDOM.render((<div>
-        <div id="town1">{states[2].cities[0].towns[0].name}</div>
-        <div id="town2">{states[2].cities[0].towns[1].name}</div>
-      </div>),document.getElementById("city1"));
+    if(evt.target.id==="state3")
+    {
+      setCity3(!city3);
     }
-    else if(city.target.id==="city2")
-    {console.log("2")
-      ReactDOM.render((<div>
-        <div id="town1">{states[2].cities[1].towns[0].name}</div>
-        <div id="town2">{states[2].cities[1].towns[1].name}</div>
-      </div>),document.getElementById("city2"));}
-
-     else if(city.target.id==="city3")
-      {
-        console.log("3");
-        ReactDOM.render((<div>
-          <div id="town1">{states[2].cities[2].towns[0].name}</div>
-          <div id="town2">{states[2].cities[2].towns[1].name}</div>
-        </div>),document.getElementById("city3"));
-      }
-      }
-
-      else if(city.target.className==="state4")
-      {
-        if(city.target.id==="city1") 
-    {console.log("1");
-      ReactDOM.render((<div>
-        <div id="town1">{states[3].cities[0].towns[0].name}</div>
-        <div id="town2">{states[3].cities[0].towns[1].name}</div>
-      </div>),document.getElementById("city1"));
-    }
-    else if(city.target.id==="city2")
-    {console.log("2")
-      ReactDOM.render((<div>
-        <div id="town1">{states[3].cities[1].towns[0].name}</div>
-        <div id="town2">{states[3].cities[1].towns[1].name}</div>
-      </div>),document.getElementById("city2"));}
-
-     else if(city.target.id==="city3")
-      {
-        console.log("3");
-        ReactDOM.render((<div>
-          <div id="town1">{states[3].cities[2].towns[0].name}</div>
-          <div id="town2">{states[3].cities[2].towns[1].name}</div>
-        </div>),document.getElementById("city3"));
-      }
-      }
-    
-  }
-
-  const statefun=(state)=>{
-    if(state.target.id==='state1')
-    {console.log(state.target);
-    ReactDOM.render(
-      (<div id="1"><div id="city1" className="state1" onClick={cityfun}>{states[0].cities[0].name}</div>
-    <div id="city2" className="state1" onClick={cityfun}>{states[0].cities[1].name}</div>
-    <div id="city3" className="state1" onClick={cityfun}>{states[0].cities[2].name}</div></div>),document.getElementById("state1"));
-    }
-    else if(state.target.id==='state2')
-    {ReactDOM.render((<div id="2"><div id="city1" className="state2" onClick={cityfun}>{states[1].cities[0].name}</div>
-    <div id="city2" className="state2" onClick={cityfun}>{states[1].cities[1].name}</div>
-    <div id="city3" className="state2" onClick={cityfun}>{states[1].cities[2].name}</div></div>),document.getElementById("state2"));
-    }
-    else if(state.target.id==='state3')
-    {ReactDOM.render((<div id="3"><div id="city1" className="state3" onClick={cityfun}>{states[2].cities[0].name}</div>
-    <div id="city2"className="state3" onClick={cityfun}>{states[2].cities[1].name}</div>
-    <div id="city3"  className="state3" onClick={cityfun}>{states[2].cities[2].name}</div></div>),document.getElementById("state3"));}
-
-    else if(state.target.id==='state4')
-    {ReactDOM.render((<div id="4"><div id="city1" className="state4" onClick={cityfun}>{states[3].cities[0].name}</div>
-    <div id="city2" className="state4" onClick={cityfun}>{states[3].cities[1].name}</div>
-    <div id="city3"className="state4" onClick={cityfun}>{states[3].cities[2].name}</div></div>),document.getElementById("state4"));
+     if(evt.target.id==="state4")
+    {
+      setCity4(!city4);
     }
     
   }
-  return <div id="main">
-    <div id="state1" onClick={statefun}>{states[0].name}</div>
-    <div id="state2" onClick={statefun}>{states[1].name}</div>
-    <div id="state3" onClick={statefun}>{states[2].name}</div>
-    <div id="state4" onClick={statefun}>{states[3].name}</div>
-    
-  </div>;
+ 
+  return(
+    <div id="main">
+     <div id="state1" onClick={toggleCity}>{states[0].name}{city1?<City states={states} id={"state1"} city1={city1}/>:null}</div>
+     <div id="state2"  onClick={toggleCity}>{states[1].name}{city2?<City states={states} id={"state2"} city2={city2}/>:null}</div>
+     <div id="state3" onClick={toggleCity}>{states[2].name}{city3?<City states={states} id={"state3"} city3={city3}/>:null}</div>
+     <div id="state4" onClick={toggleCity}>{states[3].name}{city4?<City states={states} id={"state4"} city4={city4}/>:null}</div>
+    </div>
+  )
 }
 
 export default App;
