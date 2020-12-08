@@ -56,7 +56,7 @@ function town(props)
         {
             return<div className="towns">
                 <div id="town1">{props.state[1].cities[2].towns[0].name}</div>
-                <div id="town1">{props.state[1].cities[2].towns[1].name}</div>
+                <div id="town2">{props.state[1].cities[2].towns[1].name}</div>
                 
             </div>
         }
